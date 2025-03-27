@@ -10,9 +10,9 @@ import (
 	"strings"
 
 	"github.com/invopop/jsonschema"
-	"github.com/metoro-io/mcp-golang/internal/datastructures"
-	"github.com/metoro-io/mcp-golang/internal/protocol"
-	"github.com/metoro-io/mcp-golang/transport"
+	"github.com/muidea/mcp-golang/internal/datastructures"
+	"github.com/muidea/mcp-golang/internal/protocol"
+	"github.com/muidea/mcp-golang/transport"
 	"github.com/pkg/errors"
 )
 

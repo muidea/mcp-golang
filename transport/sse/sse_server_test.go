@@ -5,7 +5,7 @@ package sse
 //	"bytes"
 //	"context"
 //	"encoding/json"
-//	"github.com/metoro-io/mcp-golang"
+//	"github.com/muidea/mcp-golang"
 //	"net/http"
 //	"net/http/httptest"
 //	"strings"

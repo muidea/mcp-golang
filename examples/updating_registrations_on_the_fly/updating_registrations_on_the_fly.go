@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	mcp_golang "github.com/metoro-io/mcp-golang"
-	"github.com/metoro-io/mcp-golang/transport/stdio"
 	"time"
+
+	"github.com/metoro-io/mcp-golang/transport/stdio"
+	mcp_golang "github.com/muidea/mcp-golang"
 )
 
 type HelloArguments struct {

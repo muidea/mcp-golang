@@ -5,8 +5,8 @@ import (
 	"log"
 
 	"github.com/davecgh/go-spew/spew"
-	mcp_golang "github.com/metoro-io/mcp-golang"
 	"github.com/metoro-io/mcp-golang/transport/http"
+	mcp_golang "github.com/muidea/mcp-golang"
 )
 
 func main() {
