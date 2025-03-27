@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/metoro-io/mcp-golang/transport/stdio"
 	mcp_golang "github.com/muidea/mcp-golang"
+	"github.com/muidea/mcp-golang/transport/stdio"
 )
 
 type Content struct {

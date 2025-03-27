@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/metoro-io/mcp-golang/transport/http"
 	mcp_golang "github.com/muidea/mcp-golang"
+	"github.com/muidea/mcp-golang/transport/http"
 )
 
 func main() {

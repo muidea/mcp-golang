@@ -6,12 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/metoro-io/mcp-golang/transport"
+	"github.com/muidea/mcp-golang/transport"
 )
-
-type SimpleHandlerFunc func(res http.ResponseWriter, req *http.Request)
-
-type SimpleHandlerWithContextFunc func(ctx context.Context, res http.ResponseWriter, req *http.Request)
 
 // SimpleTransport implements a stateless HTTP transport for MCP using Simple
 type SimpleTransport struct {
@@ -71,7 +67,7 @@ func (t *SimpleTransport) SetMessageHandler(handler func(ctx context.Context, me
 }
 
 // Handler returns a Simple handler function that can be used with Simple's router
-func (t *SimpleTransport) HandlerWithContext() SimpleHandlerWithContextFunc {
+func (t *SimpleTransport) HandlerWithContext() func(context.Context, http.ResponseWriter, *http.Request) {
 	return func(ctx context.Context, res http.ResponseWriter, req *http.Request) {
 		if req.Method != http.MethodPost {
 			res.WriteHeader(http.StatusMethodNotAllowed)
@@ -109,14 +105,14 @@ func (t *SimpleTransport) HandlerWithContext() SimpleHandlerWithContextFunc {
 	}
 }
 
-func (t *SimpleTransport) Handler() SimpleHandlerFunc {
+func (t *SimpleTransport) Handler() func(http.ResponseWriter, *http.Request) {
 	return func(res http.ResponseWriter, req *http.Request) {
 		ctx := context.Background()
-		if req.Method != http.MethodPost {
-			res.WriteHeader(http.StatusMethodNotAllowed)
-			res.Write([]byte("Only POST method is supported"))
-			return
-		}
+		//if req.Method != http.MethodPost {
+		//	res.WriteHeader(http.StatusMethodNotAllowed)
+		//	res.Write([]byte("Only POST method is supported"))
+		//	return
+		//}
 
 		body, err := t.readBody(req.Body)
 		if err != nil {

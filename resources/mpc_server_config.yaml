@@ -1,0 +1,60 @@
+# MPC 服务器基础配置
+server:
+  name: "federation-query-mpc"
+  log_level: "info"
+  http:
+    address: ":8443"
+    read_timeout: 15s
+    write_timeout: 20s
+    idle_timeout: 60s
+  grpc:
+    address: ":9001"
+    max_concurrent_streams: 100
+
+# TLS安全配置
+tls:
+  cert_file: "/etc/mpc/certs/server.crt"
+  key_file: "/etc/mpc/certs/server.key"
+  client_ca_file: "/etc/mpc/certs/ca.crt"
+
+# 服务发现配置
+service_discovery:
+  consul:
+    address: "consul-server:8500"
+    service_check_interval: "10s"
+    deregister_critical_service_after: "30m"
+
+# 资源配额限制
+resource_limits:
+  max_cpu: "2"
+  max_memory: "4Gi"
+  max_connections: 1000
+
+# 健康检查配置
+health_check:
+  http_path: "/healthz"
+  grpc_service: "grpc.health.v1.Health"
+  interval: "30s"
+  timeout: "5s"
+
+# 数据库连接池配置
+database:
+  max_open_conns: 50
+  max_idle_conns: 10
+  conn_max_lifetime: "30m"
+
+# 分布式追踪配置
+tracing:
+  jaeger_endpoint: "jaeger-collector:14268"
+  sampling_rate: 0.1
+
+# 监控指标配置
+metrics:
+  prometheus_port: 9100
+  namespace: "mpc_service"
+
+# 断路器配置
+circuit_breaker:
+  failure_threshold: 5
+  success_threshold: 2
+  timeout: "30s"

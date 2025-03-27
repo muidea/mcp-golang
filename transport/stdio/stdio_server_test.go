@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/metoro-io/mcp-golang/transport"
+	"github.com/muidea/mcp-golang/transport"
 
 	"github.com/stretchr/testify/assert"
 )

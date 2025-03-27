@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/metoro-io/mcp-golang/transport"
+	"github.com/muidea/mcp-golang/transport"
 )
 
 // HTTPTransport implements a stateless HTTP transport for MCP
@@ -98,10 +98,10 @@ func (t *HTTPTransport) SetMessageHandler(handler func(ctx context.Context, mess
 }
 
 func (t *HTTPTransport) handleRequest(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "Only POST method is supported", http.StatusMethodNotAllowed)
-		return
-	}
+	//if r.Method != http.MethodPost {
+	//	http.Error(w, "Only POST method is supported", http.StatusMethodNotAllowed)
+	//	return
+	//}
 
 	ctx := r.Context()
 	body, err := t.readBody(r.Body)

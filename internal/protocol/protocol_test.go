@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/metoro-io/mcp-golang/internal/testingutils"
-	"github.com/metoro-io/mcp-golang/transport"
+	"github.com/muidea/mcp-golang/internal/testingutils"
+	"github.com/muidea/mcp-golang/transport"
 )
 
 // TestProtocol_Connect verifies the basic connection functionality of the Protocol.
